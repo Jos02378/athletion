@@ -880,167 +880,6 @@ const objectOfDays = {
   Sun: 'Sunday',
 };
 
-function renderMatch(doc) {
-  //MAIN DIV
-  let display_content_per_date = document.createElement('div');
-  display_content_per_date.className = 'display-content-per-date';
-
-  //DATE AND UL
-  let date = document.createElement('h4');
-  let display_list = document.createElement('ul');
-
-  date.className = 'display-date';
-  display_list.className = 'display-list';
-  let date_text = doc.data().date;
-  let date_split = date_text.split(' ');
-  let full_day = objectOfDays[date_split[0]];
-  let date_final = date_split.splice(1, 2);
-  let date_join = date_final.join(' ');
-  date.innerHTML = full_day + ' ' + date_join + ', ' + doc.data().time + ' WIB';
-
-  //LI
-  let display_item = document.createElement('li');
-  display_item.className = 'display-item';
-
-  //SPORT'S ICON
-  let display_color_identifier = document.createElement('div');
-  let icon = document.createElement('img');
-  display_color_identifier.className = 'display-color-identifier';
-
-  if (doc.data().sport == 'basketball') {
-    icon.src = './images/basketball2.svg';
-    display_item.id = 'display-basketball';
-  } else if (doc.data().sport == 'soccer') {
-    icon.src = './images/soccer2.svg';
-    display_item.id = 'display-soccer';
-  } else if (doc.data().sport == 'badminton') {
-    icon.src = './images/badminton2.svg';
-    display_item.id = 'display-badminton';
-  } else if (doc.data().sport == 'volleyball') {
-    icon.src = './images/volleyball2.svg';
-    display_item.id = 'display-volleyball';
-  }
-
-  //EVENT NAME, AMOUNT OF PLAYERS, GENDER
-  let display_text = document.createElement('div');
-  let display_title = document.createElement('h2');
-  let display_amount = document.createElement('div');
-  let img = document.createElement('img');
-  let p = document.createElement('p');
-  let display_peoplepref2 = document.createElement('p');
-
-  display_text.className = 'display-text';
-  display_title.className = 'display-title';
-  display_amount.className = 'display-amount';
-
-  img.src = './images/group.svg';
-  display_title.innerHTML = doc.data().event_name;
-  p.innerHTML = '3 / 10';
-
-  //DISPLAY BAR
-  let display_bar = document.createElement('div');
-  display_bar.className = 'display-bar';
-
-  //DISPLAY LOCATION
-  let display_location = document.createElement('div');
-  let display_place = document.createElement('p');
-  let display_address = document.createElement('p');
-
-  display_location.className = 'display-location';
-  display_place.className = 'display-place';
-  display_place.style.textOverflow = 'ellipsis';
-  display_address.className = 'display-address';
-
-  display_place.innerHTML = doc.data().location;
-  display_address.innerHTML = doc.data().address;
-
-  //GENDER ICON
-  let display_peoplepref = document.createElement('div');
-  let display_sex_icon = document.createElement('div');
-  let img_gender = document.createElement('img');
-  let display_sex_text = document.createElement('p');
-
-  display_sex_icon.className = 'display-sex-icon';
-  display_sex_text.className = 'display-sex-text';
-
-  //BUTTON
-  let button = document.createElement('button');
-  let button_p = document.createElement('p');
-  let button_image = document.createElement('img');
-
-  //CLASS BUTTON TERGANTUNG ACTION
-  button.setAttribute('type', 'submit');
-  button.className = 'display-request';
-  button_p.innerHTML = 'Request';
-  button_image.src = './images/Right arrow.svg';
-  // button.className = "display-delete";
-  // button.className = "display-request";
-
-  //SET ID FIREBASE KE LI
-  display_item.setAttribute('data-id', doc.id);
-
-  if (doc.data().sex == 'male') {
-    display_peoplepref2.className = 'display-peoplepref2 display-male2';
-    display_peoplepref2.innerHTML = 'male only';
-    img_gender.src = './images/male.svg';
-    img_gender.alt = 'malesign';
-    display_peoplepref.className = 'display-peoplepref display-male';
-    display_sex_text.innerHTML = 'male only';
-  } else if (doc.data().sex == 'female') {
-    display_peoplepref2.className = 'display-peoplepref2 display-female2';
-    display_peoplepref2.innerHTML = 'female only';
-    img_gender.src = './images/female.svg';
-    img_gender.alt = 'femalesign';
-    display_peoplepref.className = 'display-peoplepref display-female';
-    display_sex_text.innerHTML = 'female only';
-  } else if (doc.data().sex == 'anyone') {
-    display_peoplepref2.className = 'display-peoplepref2 display-anysex2';
-    display_peoplepref2.innerHTML = 'anyone can join';
-    img_gender.src = './images/anysex.svg';
-    img_gender.alt = 'unisex';
-    display_peoplepref.className = 'display-peoplepref display-anysex';
-    display_sex_text.innerHTML = 'anyone';
-  }
-
-  //display-color-identifier
-  display_color_identifier.appendChild(icon);
-  display_item.appendChild(display_color_identifier);
-
-  //display-text
-  display_amount.appendChild(img);
-  display_amount.appendChild(p);
-  display_text.appendChild(display_title);
-  display_text.appendChild(display_amount);
-  display_text.appendChild(display_peoplepref2);
-
-  //display-location
-  display_location.appendChild(display_place);
-  display_location.appendChild(display_address);
-
-  //display-peoplepref
-  display_sex_icon.appendChild(img_gender);
-  display_peoplepref.appendChild(display_sex_icon);
-  display_peoplepref.appendChild(display_sex_text);
-
-  //display button
-  button.appendChild(button_p);
-  button.appendChild(button_image);
-
-  //APPEND TO DISPLAY-ITEM
-  display_item.appendChild(display_color_identifier);
-  display_item.appendChild(display_text);
-  display_item.appendChild(display_bar);
-  display_item.appendChild(display_location);
-  display_item.appendChild(display_peoplepref);
-  display_item.appendChild(button);
-
-  //APPEND TO MAIN DIV
-  display_list.appendChild(display_item);
-  display_content_per_date.appendChild(date);
-  display_content_per_date.appendChild(display_list);
-  display_container.appendChild(display_content_per_date);
-}
-
 // CALL DATA TO FIREBASE
 db.collection('match')
   .where('sex', '==', sex_value)
@@ -1051,6 +890,7 @@ db.collection('match')
     changes.forEach((change) => {
       if (change.type == 'added') {
         // CHECK IF THE OWNER FIELD EXISTS
+        console.log('executed');
         let realtime_date_time = new Date();
         let firebase_date = new Date(
           change.doc.data().date + ' ' + change.doc.data().time
@@ -1065,8 +905,10 @@ db.collection('match')
           renderMatch3(change.doc.data(), change.doc.id);
         }
       } else if (change.type === 'modified') {
+        console.log('executed');
         updateMatch(change.doc.data(), change.doc.id);
       } else if (change.type == 'removed') {
+        console.log('executed');
         let li = display_container.querySelector(
           '[data-id=' + change.doc.id + ']'
         );
@@ -1074,112 +916,6 @@ db.collection('match')
       }
     });
   });
-
-// TEST FUNCTION WITH DUMMY DATA
-
-var ok_test = {
-  address: 'Jl. Gatot Subroto No.72',
-  date: 'Sun June 5 2020',
-  event_name: 'Match Finals',
-  location: 'Lapangan Bola Aldiron',
-  owner: '1fj3C0p3vowY8tCrpHNa',
-  sex: 'anyone',
-  sport: 'soccer',
-  time: '10:00',
-  matches_join: ['D4T0Imix4NVhf8L0w8J3'],
-  pending: ['D4T0Imix4NVhf8L0w8J3'],
-};
-
-var ok_test2 = {
-  address: 'jl.hello234',
-  date: 'Sun Dec 27 2020',
-  event_name: 'Joseph@34',
-  location: 'Lapangan Gasibu',
-  owner: '1fj3C0p3vowY8tCrpHNa',
-  sex: 'anyone',
-  sport: 'soccer',
-  time: '12:00',
-  matches_join: ['D4T0Imix4NVhf8L0w8J3'],
-  pending: ['D4T0Imix4NVhf8L0w8J3'],
-};
-
-var ok_test3 = {
-  address: 'jl.hello234',
-  date: 'Mon Dec 28 2020',
-  event_name: 'Badmin Cabskuy',
-  location: 'Lapangan Dinas',
-  owner: '1fj3C0p3vowY8tCrpHNa',
-  sex: 'anyone',
-  sport: 'badminton',
-  time: '15:00',
-  matches_join: ['D4T0Imix4NVhf8L0w8J3'],
-  pending: ['D4T0Imix4NVhf8L0w8J3'],
-};
-
-var ok_test4 = {
-  address: 'jl.hello234',
-  date: 'Mon Dec 28 2020',
-  event_name: 'Mabar Minggu!!!',
-  location: 'Komplek BudiIndah',
-  owner: 'ernesto',
-  sex: 'female',
-  sport: 'basketball',
-  time: '15:00',
-  matches_join: ['D4T0Imix4NVhf8L0w8J3'],
-  pending: ['D4T0Imix4NVhf8L0w8J3'],
-};
-
-var ok_test5 = {
-  address: 'jl.hello234',
-  date: 'Tue Dec 29 2020',
-  event_name: 'Futsal Jancuuu',
-  location: 'Abadi Sport Center',
-  owner: 'ernest1',
-  sex: 'male',
-  sport: 'soccer',
-  time: '15:00',
-  matches_join: ['D4T0Imix4NVhf8L0w8J3'],
-  pending: ['1fj3C0p3vowY8tCrpHNa'],
-};
-
-var ok_test6 = {
-  address: 'jl.hello234',
-  date: 'Wed Dec 30 2020',
-  event_name: 'asdkljfha',
-  location: 'Rumah Ernest',
-  owner: '1fj3C0p3vowY8tCrpHNa',
-  sex: 'male',
-  sport: 'volleyball',
-  time: '15:00',
-  matches_join: ['1fj3C0p3vowY8tCrpHNa'],
-  pending: ['D4T0Imix4NVhf8L0w8J3'],
-};
-
-var ok_test7 = {
-  address: 'jl.hello234',
-  date: 'Wed Dec 30 2020',
-  event_name: 'asdkljfha',
-  location: 'Cipaku Gym',
-  owner: 'lol',
-  sex: 'anyone',
-  sport: 'basketball',
-  time: '12:00',
-  matches_join: ['1fj3C0p3vowY8tCrpHNa'],
-  pending: ['D4T0Imix4NVhf8L0w8J3'],
-};
-
-var ok_test8 = {
-  address: 'jl.hello234',
-  date: 'Sun Dec 27 2020',
-  event_name: 'GUa_test_8',
-  location: 'GOR Padjajaran',
-  owner: '1fj3C0p3vowY8tCrpHNa',
-  sex: 'female',
-  sport: 'basketball',
-  time: '17:00',
-  matches_join: ['D4T0Imix4NVhf8L0w8J3'],
-  pending: ['D4T0Imix4NVhf8L0w8J3'],
-};
 
 let div = document.querySelector('.display-container');
 

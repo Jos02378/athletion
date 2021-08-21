@@ -64,7 +64,6 @@ document
 /*
 // Progress Bar
 */
-
 let nextPage1 = document.querySelector('.next-1');
 let event_name = document.querySelector('#event-name');
 let location_name = document.querySelector('#location-name');
@@ -432,8 +431,6 @@ signupForm.addEventListener('submit', (e) => {
   let location_name_form = signupForm.location_name.value;
   let address_form = signupForm.address.value;
 
-  let firebase_room_id = sessionStorage.getItem('room_id');
-
   db.collection('match').add({
     event_name: event_name_form.trim().toLowerCase(),
     location: location_name_form.trim(),
@@ -448,7 +445,7 @@ signupForm.addEventListener('submit', (e) => {
     matches_join: [],
     pending: [],
     //GANTI NAMA OWNER
-    owner: firebase_room_id,
+    owner: 'Wf1bl64tzXIKmO97D2ry',
   });
 
   // ADD DATA TO ACCOUNT
@@ -458,7 +455,7 @@ signupForm.addEventListener('submit', (e) => {
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         db.collection('account')
-          .doc(firebase_room_id)
+          .doc('Wf1bl64tzXIKmO97D2ry')
           .update({
             matches_created_join: firebase.firestore.FieldValue.arrayUnion(
               doc.id

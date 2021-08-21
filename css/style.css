@@ -5,10 +5,6 @@
   src: url(../../fonts/LemonMilk.otf);
 }
 
-body {
-  display: none;
-}
-
 * {
   margin: 0;
   padding: 0;
