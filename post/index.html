@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Requests | Kebantai</title>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/alert.css">
+    <link rel="stylesheet" href="./css/calendar.css">
+    <link rel="stylesheet" href="./css/jquery.nice-number.css">
+    <link rel="stylesheet" href="./css/calendarWheel.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="dark-background"></div>
+        <header class="page-header">
+            <div class="header-menu">
+                <a href="../index.html" class="header-logo">KEBANTAI</a>
+            </div> 
+            <div class="navigation-toggle">
+                <img class="navigation-toggle-icon" src="./images/Header images/burger-icon.svg" alt="">
+            </div>
+            <div class="navigation right-header-tab">
+                <a href="/post/index.html" class="right-tab-options active">
+                    <span class="right-tab-icon"
+                      ><img src="./images/Header images/post.svg" alt=""
+                    /></span>
+                    <p class="right-tab-name">Post Requests</p>
+                  </a>
+                  <a href="../matches/index.html" class="right-tab-options">
+                    <span class="right-tab-icon"
+                      ><img src="./images/Header images/matches.svg" alt=""
+                    /></span>
+                    <p class="right-tab-name">Matches</p>
+                  </a>
+                  <a href="/schedule/index.html" class="right-tab-options">
+                    <span class="right-tab-icon"
+                      ><img src="./images/Header images/schedule.svg" alt=""
+                    /></span>
+                    <p class="right-tab-name">Schedule</p>
+                  </a>
+                  <a href="/chat/index.html" class="right-tab-options">
+                    <span class="right-tab-icon"
+                      ><img src="./images/Header images/chatroom.svg" alt=""
+                    /></span>
+                    <p class="right-tab-name">Chatroom</p>
+                  </a>
+            </div>
+        </header>
+        <div class="progress">
+            <ul class="progress-bar">
+                <li class="first-progress active-progress">GENERAL CUSTOMIZATION</li>
+                <li class="second-progress">2</li>
+                <li class="third-progress">3</li>
+            </ul>
+        </div>
+        <form action="#" class="content" autocomplete="off">
+
+            <!-- ---------------------------------------------------------------------------- -->
+
+            <section class="page page-1">
+                <div class="form__prompt">
+                    <input class="form__input" type="text" name="event_name" id="event-name"
+                        placeholder="ex: BasketballSesh!" maxlength="15" autofocus>
+                    <label for="event-name" class="form__subtitle">Event Name</label>
+                </div>
+                <div class="form__prompt">
+                    <input class="form__input" type="text" name="location_name" id="location-name"
+                        placeholder="ex: Orion Sports Center" maxlength="20">
+                    <label for="location-name" class="form__subtitle">Location Name</label>
+                </div>
+                <div class="form__prompt">
+                    <div class="select-box select-region">
+                        <div class="options-box" id="options_box_region">
+                            <div class="option">
+                                <input type="radio" class="radio" name="region" id="jakarta" value="jakarta">
+                                <label for="jakarta">Jakarta</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" class="radio" name="region" id="tangerang" value="tangerang">
+                                <label for="tangerang">Tangerang</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" class="radio" name="region" id="bandung" value="bandung">
+                                <label for="bandung">Bandung</label>
+                            </div>
+                        </div>
+                        <div class="option-selected" id="option_selected_region">
+                            Choose a region
+                        </div>
+                    </div>
+                    <label class="form__subtitle">Region</p>
+                </div>
+                <div class="form__prompt">
+                    <input class="form__input" type="text" name="address" id="address"
+                        placeholder="ex: Jl. Dipatiukur no. 9" maxlength="100">
+                    <label for="address" class="form__subtitle">Address</label>
+                </div>
+
+                <div class="next next-1">NEXT</div>
+            </section>
+
+            <!-- ---------------------------------------------------------------------------- -->
+
+            <section class="page page-2">
+                <div id="showcase-wrapper">
+                    <div id="myCalendarWrapper"></div>
+                </div>
+                <div class="form__prompt form__date">
+                    <input type="text" class="form__input" name="" id="form__date-selector" placeholder="choose a date"
+                        readonly>
+                    <label class="form__subtitle">Manage your time</label>
+                </div>
+                <div class="date-background">
+                    <div class="date-wrapper"></div>
+                    <div class="date-selector">
+                        <div class="year" id="year1"></div>
+                        <div class="month" id="month1"></div>
+                        <div class="day" id="day1"></div>
+                    </div>
+                    <div class="date-submit">SET DATE</div>
+                </div>
+                <div class="form__prompt form__times">
+                    <div class="hours">
+                        <label class="time__container">06:00
+                            <input type="radio" value="06:00" id="time_06_00" name="time" checked="checked">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="time__container">07:00
+                            <input type="radio" value="07:00" name="time">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="time__container">08:00
+                            <input type="radio" value="08:00" name="time">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="time__container">09:00
+                            <input type="radio" value="09:00" name="time">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="time__container">10:00
+                            <input type="radio" value="10:00" name="time">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="time__container">11:00
+                            <input type="radio" value="11:00" name="time">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="time__container">12:00
+                            <input type="radio" value="12:00" name="time">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="time__container">13:00
+                            <input type="radio" value="13:00" name="time">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="time__container">14:00
+                            <input type="radio" value="14:00" name="time">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="time__container">15:00
+                            <input type="radio" value="15:00" name="time">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="time__container">16:00
+                            <input type="radio" value="16:00" name="time">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="time__container">17:00
+                            <input type="radio" value="17:00" name="time">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="time__container">18:00
+                            <input type="radio" value="18:00" name="time">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <label class="form__subtitle" for="hours">Times</label>
+                </div>
+                <div class="buttons buttons-2">
+                    <div class="next next-2">NEXT</div>
+                    <div class="back back-2">BACK</div>
+                </div>
+            </section>
+
+            <!-- ---------------------------------------------------------------------------- -->
+
+            <section class="page page-3">
+                <div class="form__prompt form__sport">
+                    <div class="form__selection__sport">
+                        <div class="sport-radio">
+                            <input class="form__radio" type="radio" name="sport" id="basketball" value="basketball"
+                                checked="checked">
+                            <label for="basketball" class="basketball-label">Basketball</label>
+                        </div>
+                        <div class="sport-radio">
+                            <input class="form__radio" type="radio" name="sport" id="soccer" value="soccer">
+                            <label for="soccer" class="soccer-label">Soccer</label>
+                        </div>
+                        <div class="sport-radio">
+                            <input class="form__radio" type="radio" name="sport" id="badminton" value="badminton">
+                            <label for="badminton" class="badminton-label">Badminton</label>
+                        </div>
+                        <div class="sport-radio">
+                            <input class="form__radio" type="radio" name="sport" id="volleyball" value="volleyball">
+                            <label for="volleyball" class="volleyball-label">Volleyball</label>
+                        </div>
+                    </div>
+                    <div class="select-box">
+                        <div class="options-box" id="options_box_sport">
+                            <div class="option">
+                                <input type="radio" class="radio" name="sport" id="basketball" value="basketball">
+                                <label for="basketball">Basketball</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" class="radio" name="sport" id="soccer" value="soccer">
+                                <label for="soccer">Soccer</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" class="radio" name="sport" id="badminton" value="badminton">
+                                <label for="badminton">Badminton</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" class="radio" name="sport" id="volleyball" value="volleyball">
+                                <label for="volleyball">Volleyball</label>
+                            </div>
+                        </div>
+                        <div class="option-selected" id="option-selected_sport">
+                            Basketball
+                        </div>
+                    </div>
+                    <label class="form__subtitle form__subtitle__sport">Choose a Sport</p>
+                </div>
+                <div class="form__prompt">
+                    <div class="form__limit">
+                        <input class="form__number" type="number" name="limitplayers" id="limitplayers" min="2"
+                            max="22">
+                    </div>
+                    <label class="form__subtitle">Limit of players</label>
+                </div>
+                <div class="form__prompt form__sex">
+                    <div class="form__selection__sex">
+                        <div class="sex-radio">
+                            <input class="form__radio" type="radio" name="sex" id="anyone" value="anyone" checked>
+                            <label for="anyone">Anyone can join</label>
+                        </div>
+                        <div class="sex-radio">
+                            <input class="form__radio" type="radio" name="sex" id="male" value="male">
+                            <label for="male">Male only</label>
+                        </div>
+                        <div class="sex-radio">
+                            <input class="form__radio" type="radio" name="sex" id="female" value="female">
+                            <label for="female">Female only</label>
+                        </div>
+                    </div>
+                    <div class="select-box">
+                        <div class="options-box" id="options_box_sex">
+                            <div class="option">
+                                <input type="radio" class="radio" name="sex" id="anyone" value="anyone">
+                                <label for="anyone">Anyone can join</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" class="radio" name="sex" id="female" value="female">
+                                <label for="female">Female Only</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" class="radio" name="sex" id="male" value="male">
+                                <label for="male">Male Only</label>
+                            </div>
+                        </div>
+                        <div class="option-selected" id="option-selected_sex">
+                            Anyone can join
+                        </div>
+                    </div>
+                    <label class="form__subtitle">People preference</p>
+                </div>
+                <div class="buttons buttons-3">
+                    <label class="agreement">
+                        By using our platform, you agree that Kebantai is not responsible for whatever happens outside 
+                        of the website. I.E. injury on the court, potential clashes, verbal harassment, etc.
+                        <input type="checkbox" class="agreement-checkbox">
+                        <span class="agreement-checkmark"></span>
+                    </label>
+                    <button type="submit" class="next publish">PUBLISH</button>
+                    <div class="back back-3">BACK</div>
+                </div>
+            </section>
+
+            <!-- ---------------------------------------------------------------------------- -->
+
+        </form>
+        <div class="error-section">
+            <div class="error">
+                <div class="error-circle"> 
+                    <p class="error-close">+</p>
+                </div>
+                <div class="error-box">
+                    <img class="error-icon" src="./images/Exclamation.svg"></img>
+                    <p class="error-text">Your event name has been taken!</p>
+                </div>
+            </div>
+            <!-- <div class="error">
+                <div class="error-circle">
+                    <p class="error-close">+</p>
+                </div>
+                <div class="error-box">
+                    <img class="error-icon" src="./images/Exclamation.svg"></img>
+                    <p class="error-text">Location Name can't be empty!</p>
+                </div>
+            </div> -->
+        </div>
+        <div class="success-section">
+            <div class="success">
+                <div class="success-circle"> 
+                    <p class="success-close">+</p>
+                </div>
+                <div class="success-box">
+                    <img class="success-icon" src="./images/success.svg"></img>
+                    <p class="success-text">Your request has been posted!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./js/calendarWheel.js"></script>
+    <script src="./js/jquery.nice-number.js"></script>
+    <script src="./js/calendar.js"></script>
+    <script src="./js/post.js"></script>
+    <script>
+        $(function () {
+
+            $('input[type="number"]').niceNumber();
+
+        });
+    </script>
+</body>
+
+</html>

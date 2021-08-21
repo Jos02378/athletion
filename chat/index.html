@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google fonts. -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Bungee Outline"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Varela Round"
+      rel="stylesheet"
+    />
+    <!-- Use font awesome icons. -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+      integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+      crossorigin="anonymous"
+    />
+    <!-- Use firebase app and database. -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/chatroom.css" />
+    <title>Chatroom - Kebantai</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="dark-background"></div>
+      <div class="dark-background-2"></div>
+      <header class="page-header">
+        <div class="header-menu">
+          <div class="header-logo">KEBANTAI</div>
+        </div>
+        <div class="navigation-toggle">
+          <img
+            class="navigation-toggle-icon"
+            src="./images/Header images/burger-icon.svg"
+            alt=""
+          />
+        </div>
+        <div class="navigation right-header-tab">
+          <a href="/post/index.html" class="right-tab-options">
+            <span class="right-tab-icon"
+              ><img src="./images/Header images/post.svg" alt=""
+            /></span>
+            <p class="right-tab-name">Post Requests</p>
+          </a>
+          <a href="/matches/index.html" class="right-tab-options">
+            <span class="right-tab-icon"
+              ><img src="./images/Header images/matches.svg" alt=""
+            /></span>
+            <p class="right-tab-name">Matches</p>
+          </a>
+          <a href="/schedule/index.html" class="right-tab-options">
+            <span class="right-tab-icon"
+              ><img src="./images/Header images/schedule.svg" alt=""
+            /></span>
+            <p class="right-tab-name">Schedule</p>
+          </a>
+          <a href="/chat/index.html" class="right-tab-options">
+            <span class="right-tab-icon"
+              ><img src="./images/Header images/chatroom.svg" alt=""
+            /></span>
+            <p class="right-tab-name">Chatroom</p>
+          </a>
+        </div>
+      </header>
+
+      <div class="empty-content">
+        <h1 class="empty-title">SEEMS LIKE YOU HAVEN'T JOINED ANY EVENTS :(</h1>
+        <h4 class="empty-subtitle">find events by tapping the link below</h4>
+        <a href="../Kebantai-Matches/index.html" class="empty-button">
+          find your events now
+        </a>
+      </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+    <script src="./chatroom.js"></script>
+  </body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule - Kebantai</title>
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/schedule.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="page-header">
+            <div class="dark-background"></div>
+            <div class="header-menu">
+                <div class="header-logo">KEBANTAI</div>
+            </div>
+            <div class="navigation-toggle">
+                <img class="navigation-toggle-icon" src="./images/Header images/burger-icon.svg" alt="">
+            </div>
+            <div class="navigation right-header-tab">
+                <a href="/post/index.html" class="right-tab-options">
+                    <span class="right-tab-icon"
+                      ><img src="./images/Header images/post.svg" alt=""
+                    /></span>
+                    <p class="right-tab-name">Post Requests</p>
+                  </a>
+                  <a href="/matches/index.html" class="right-tab-options">
+                    <span class="right-tab-icon"
+                      ><img src="./images/Header images/matches.svg" alt=""
+                    /></span>
+                    <p class="right-tab-name">Matches</p>
+                  </a>
+                  <a href="/schedule/index.html" class="right-tab-options">
+                    <span class="right-tab-icon"
+                      ><img src="./images/Header images/schedule.svg" alt=""
+                    /></span>
+                    <p class="right-tab-name">Schedule</p>
+                  </a>
+                  <a href="/chat/index.html" class="right-tab-options">
+                    <span class="right-tab-icon"
+                      ><img src="./images/Header images/chatroom.svg" alt=""
+                    /></span>
+                    <p class="right-tab-name">Chatroom</p>
+                  </a>
+            </div>
+        </header>
+        <div class="empty-content">
+            <h1 class="empty-title">
+                SEEMS LIKE YOU HAVEN'T JOINED ANY EVENTS :(
+            </h1>
+            <h4 class="empty-subtitle">
+                find events by tapping the link below
+            </h4>
+            <a href="../Kebantai-Matches/index.html" class="empty-button">
+                find events now
+            </a>
+        </div>
+        <div class="content">
+            <h2 id="schedule-title">Your Schedule</h2>
+            <div class="display-container">
+            </div>
+            <!-- <div class="modal modal-application">    
+                <form class="modal-box" action="">
+                    <div class="modal-close modal-close-application">+</div>
+                    <h4 class="modal-title">
+                        Request Application
+                    </h4>
+                    <label for="modal-textarea" class="modal-subtitle">
+                        Explain to the event owner about yourself (age, experiences, etc). 
+                    </label>
+                    <textarea name="modal-textarea" id="modal-textarea" maxlength="200" placeholder="Max 200 characters."></textarea>
+                    <input type="submit" value="SUBMIT" class="modal-submit modal-application-submit">
+                </form>
+                <div class="error-section">
+                    <div class="error">
+                        <div class="error-circle">
+                            <p class="error-close">+</p>
+                        </div>
+                        <div class="error-box">
+                            <img class="error-icon" src="./images/Exclamation.svg"></img>
+                            <p class="error-text">Please enter your username</p>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="modal modal-reason">
+                <form class="modal-box" action="">
+                    <div class="modal-close modal-close-reason">+</div>
+                    <h4 class="modal-title">
+                        State your reasons
+                    </h4>
+                    <label for="modal-textarea" class="modal-subtitle">
+                        Don’t forget to explain your participants why you cancel your event.
+                    </label>
+                    <textarea name="modal-textarea" id="modal-textarea" maxlength="200"
+                        placeholder="Max 200 characters."></textarea>
+                    <input type="submit" value="CONFIRM DELETE" class="modal-submit modal-reason-submit">
+                </form>
+                <div class="error-section">
+                    <div class="error">
+                        <div class="error-circle">
+                            <p class="error-close">+</p>
+                        </div>
+                        <div class="error-box">
+                            <img class="error-icon" src="./images/Exclamation.svg"></img>
+                            <p class="error-text">Your reason must be at least 20 characters.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+    <script src="./schedule.js"></script>
+</body>
+
+</html>
