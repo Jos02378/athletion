@@ -61,6 +61,43 @@ menuToggle.addEventListener('click', () => {
 let empty_content = document.querySelector('.empty-content');
 let main_content = document.querySelector('.content');
 
+// SORTING FUNCTION
+function sortDiv() {
+  var div, i, switching, b, shouldSwitch;
+  div = document.querySelector('.display-container');
+  switching = true;
+  /* Make a loop that will continue until
+    no switching has been done: */
+  while (switching) {
+    // Start by saying: no switching is done:
+    switching = false;
+    b = div.childNodes;
+
+    // Loop through all div items:
+    for (i = 1; i < div.childElementCount; i++) {
+      // Start by saying there should be no switching:
+      shouldSwitch = false;
+      /* Check if the next item should
+            switch place with the current item: */
+      let date1 = new Date(b[i].id);
+      let date2 = new Date(b[i + 1].id);
+
+      if (date1 > date2) {
+        /* If next item is alphabetically lower than current item,
+                mark as a switch and break the loop: */
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /* If a switch has been marked, make the switch
+            and mark the switch as done: */
+      b[i].parentNode.insertBefore(b[i + 1], b[i]);
+      switching = true;
+    }
+  }
+}
+
 db.collection('account')
   .where(
     firebase.firestore.FieldPath.documentId(),
@@ -382,6 +419,8 @@ setTimeout(() => {
         document.querySelector('.modal-reason').style.display = 'flex';
       });
     }
+
+    sortDiv();
   }
 
   document.addEventListener('click', () => {
