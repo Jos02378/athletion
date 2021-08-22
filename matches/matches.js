@@ -26,7 +26,7 @@ db.settings({
 // Initialized Firebase Realtime Database
 const dbf = firebase.database();
 
-let firebase_room_id = sessionStorage.getItem('room_id');
+let firebase_room_id = 'Wf1bl64tzXIKmO97D2ry';
 
 // HEADER BEHAVIOR
 let menuToggle = document.querySelector('.navigation-toggle');
@@ -890,7 +890,6 @@ db.collection('match')
     changes.forEach((change) => {
       if (change.type == 'added') {
         // CHECK IF THE OWNER FIELD EXISTS
-        console.log('executed');
         let realtime_date_time = new Date();
         let firebase_date = new Date(
           change.doc.data().date + ' ' + change.doc.data().time
@@ -905,10 +904,8 @@ db.collection('match')
           renderMatch3(change.doc.data(), change.doc.id);
         }
       } else if (change.type === 'modified') {
-        console.log('executed');
         updateMatch(change.doc.data(), change.doc.id);
       } else if (change.type == 'removed') {
-        console.log('executed');
         let li = display_container.querySelector(
           '[data-id=' + change.doc.id + ']'
         );
@@ -1091,17 +1088,17 @@ function renderMatch3(doc, id) {
     });
   });
 
-  if (doc.owner == firebase_room_id) {
+  if (doc.owner == 'Wf1bl64tzXIKmO97D2ry') {
     //owner
     button.className = 'display-delete';
     button_p.innerHTML = 'Delete';
     button_image.src = './images/Trash.svg';
-  } else if (doc.matches_join.includes(firebase_room_id)) {
+  } else if (doc.matches_join.includes('Wf1bl64tzXIKmO97D2ry')) {
     //leave
     button.className = 'display-leave';
     button_p.innerHTML = 'Leave';
     button_image.src = './images/Leave.svg';
-  } else if (pending_list_data.includes(firebase_room_id)) {
+  } else if (pending_list_data.includes('Wf1bl64tzXIKmO97D2ry')) {
     //withdraw
     button.className = 'display-withdraw';
     button_p.innerHTML = 'Withdraw';
@@ -1204,8 +1201,9 @@ function renderMatch3(doc, id) {
           doc_pending.forEach((data) => {
             var regex = new RegExp(firebase_room_id, 'g');
             let match = data.match(regex);
+
             if (match) {
-              data_want_delete = match.input;
+              data_want_delete = data;
             }
           });
 
@@ -1305,11 +1303,10 @@ document.addEventListener('click', () => {
           let data_want_delete = '';
 
           doc_pending.forEach((data) => {
-            // let match = data.match(/1fj3C0p3vowY8tCrpHNa/);
             var regex = new RegExp(firebase_room_id, 'g');
             let match = data.match(regex);
             if (match) {
-              data_want_delete = match.input;
+              data_want_delete = data;
             }
           });
 
@@ -1370,7 +1367,7 @@ document.addEventListener('click', () => {
       } else {
         let button_change = document.getElementById('selected_button');
         let button_parent = button_change.parentNode;
-        let data = textarea.value.trim() + '~~' + firebase_room_id;
+        let data = textarea.value.trim() + '~~' + 'Wf1bl64tzXIKmO97D2ry';
 
         // GET THE NEW VALUE OF PLAYERS (buat chat)
         let amountPlayers = button_parent
